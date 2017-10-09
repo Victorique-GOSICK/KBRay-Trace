@@ -46,12 +46,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collision\KBAABBox.cs" />
+    <Compile Include="Collision\KBOBBox.cs" />
+    <Compile Include="Math\KBRay.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Math\DifferentialGeometry.cs" />
+    <Compile Include="Math\KBAngle.cs" />
+    <Compile Include="Math\KBColor.cs" />
+    <Compile Include="Math\KBMath2D.cs" />
+    <Compile Include="Math\KBMath3D.cs" />
+    <Compile Include="Math\KBMathDefine.cs" />
+    <Compile Include="Math\KBQuaternion.cs" />
+    <Compile Include="Math\KBTransform.cs" />
+    <Compile Include="Math\Matrix\KBMatrix3x3.cs" />
+    <Compile Include="Math\Matrix\KBMatrix4x4.cs" />
+    <Compile Include="Math\Vector\KBVector2.cs" />
+    <Compile Include="Math\Vector\KBVector3.cs" />
+    <Compile Include="Math\Vector\KBVector4.cs" />
+    <Compile Include="Polygon\KBCapsule.cs" />
+    <Compile Include="Polygon\KBCircle.cs" />
+    <Compile Include="Polygon\KBCoefficientSpectrum.cs" />
+    <Compile Include="Polygon\KBCube.cs" />
+    <Compile Include="Polygon\KBLine.cs" />
+    <Compile Include="Polygon\KBPlane.cs" />
+    <Compile Include="Polygon\KBPrimitive.cs" />
+    <Compile Include="Polygon\KBShape.cs" />
+    <Compile Include="Polygon\KBSphere.cs" />
+    <Compile Include="Polygon\KBTtriangleMesh.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -79,6 +105,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

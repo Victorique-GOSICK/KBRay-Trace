@@ -1,1 +1,9 @@
 E:\我的项目\Ray Trace\Ray Trace\bin\Debug\Ray Trace.exe.config
+E:\KBRayTrace\KBRay-Trace\Ray Trace\Ray Trace\bin\Debug\Ray Trace.exe.config
+E:\KBRayTrace\KBRay-Trace\Ray Trace\Ray Trace\obj\Debug\Ray_Trace.MainForm.resources
+E:\KBRayTrace\KBRay-Trace\Ray Trace\Ray Trace\obj\Debug\Ray_Trace.Properties.Resources.resources
+E:\KBRayTrace\KBRay-Trace\Ray Trace\Ray Trace\obj\Debug\Ray Trace.csproj.GenerateResource.Cache
+E:\KBRayTrace\KBRay-Trace\Ray Trace\Ray Trace\bin\Debug\Ray Trace.exe
+E:\KBRayTrace\KBRay-Trace\Ray Trace\Ray Trace\bin\Debug\Ray Trace.pdb
+E:\KBRayTrace\KBRay-Trace\Ray Trace\Ray Trace\obj\Debug\Ray Trace.exe
+E:\KBRayTrace\KBRay-Trace\Ray Trace\Ray Trace\obj\Debug\Ray Trace.pdb
