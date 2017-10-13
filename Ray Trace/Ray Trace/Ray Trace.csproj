@@ -46,8 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Camera\Camera.cs" />
+    <Compile Include="Camera\OrthogonalCamera.cs" />
+    <Compile Include="Camera\PerspectiveCamera.cs" />
     <Compile Include="Collision\KBAABBox.cs" />
     <Compile Include="Collision\KBOBBox.cs" />
+    <Compile Include="Film\Film.cs" />
+    <Compile Include="Graphics\ImageGen.cs" />
     <Compile Include="Math\KBRay.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

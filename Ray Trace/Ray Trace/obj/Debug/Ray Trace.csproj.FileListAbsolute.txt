@@ -7,3 +7,4 @@ E:\KBRayTrace\KBRay-Trace\Ray Trace\Ray Trace\bin\Debug\Ray Trace.exe
 E:\KBRayTrace\KBRay-Trace\Ray Trace\Ray Trace\bin\Debug\Ray Trace.pdb
 E:\KBRayTrace\KBRay-Trace\Ray Trace\Ray Trace\obj\Debug\Ray Trace.exe
 E:\KBRayTrace\KBRay-Trace\Ray Trace\Ray Trace\obj\Debug\Ray Trace.pdb
+E:\KBRayTrace\KBRay-Trace\Ray Trace\Ray Trace\obj\Debug\Ray Trace.csprojResolveAssemblyReference.cache

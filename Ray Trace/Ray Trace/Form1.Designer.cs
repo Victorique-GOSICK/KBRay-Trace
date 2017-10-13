@@ -28,21 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.Display = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Display)).BeginInit();
             this.SuspendLayout();
             // 
-            // Form1
+            // Display
+            // 
+            this.Display.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Display.Location = new System.Drawing.Point(0, 0);
+            this.Display.Name = "Display";
+            this.Display.Size = new System.Drawing.Size(1584, 922);
+            this.Display.TabIndex = 0;
+            this.Display.TabStop = false;
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1015, 655);
-            this.Name = "Form1";
+            this.ClientSize = new System.Drawing.Size(1584, 922);
+            this.Controls.Add(this.Display);
+            this.Name = "MainForm";
             this.Text = "KBray Trace";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
+            ((System.ComponentModel.ISupportInitialize)(this.Display)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox Display;
     }
 }
 

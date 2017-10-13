@@ -19,7 +19,12 @@ namespace Ray_Trace
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Display.Image = ImageGen.DrawToBitmap(Display.Width, Display.Height);
+        }
 
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            //Display.Image = ImageGen.DrawToBitmap(Display.Width, Display.Height);
         }
     }
 }
