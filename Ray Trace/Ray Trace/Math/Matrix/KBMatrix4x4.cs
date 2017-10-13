@@ -901,77 +901,77 @@ public struct KBMatrix4x4
         return result;
     }
 
-    public static KBMatrix4x4 CreateShadow(KBVector3 lightDirection, KBPlane plane)
-    {
-        KBPlane p = KBPlane.Normalize(plane);
+    //public static KBMatrix4x4 CreateShadow(KBVector3 lightDirection, KBPlane plane)
+    //{
+    //    KBPlane p = KBPlane.Normalize(plane);
 
-        float dot = p.Normal.X * lightDirection.X + p.Normal.Y * lightDirection.Y + p.Normal.Z * lightDirection.Z;
-        float a = -p.Normal.X;
-        float b = -p.Normal.Y;
-        float c = -p.Normal.Z;
-        float d = -p.D;
+    //    float dot = p.Normal.X * lightDirection.X + p.Normal.Y * lightDirection.Y + p.Normal.Z * lightDirection.Z;
+    //    float a = -p.Normal.X;
+    //    float b = -p.Normal.Y;
+    //    float c = -p.Normal.Z;
+    //    float d = -p.D;
 
-        KBMatrix4x4 result;
+    //    KBMatrix4x4 result;
 
-        result.M11 = a * lightDirection.X + dot;
-        result.M21 = b * lightDirection.X;
-        result.M31 = c * lightDirection.X;
-        result.M41 = d * lightDirection.X;
+    //    result.M11 = a * lightDirection.X + dot;
+    //    result.M21 = b * lightDirection.X;
+    //    result.M31 = c * lightDirection.X;
+    //    result.M41 = d * lightDirection.X;
 
-        result.M12 = a * lightDirection.Y;
-        result.M22 = b * lightDirection.Y + dot;
-        result.M32 = c * lightDirection.Y;
-        result.M42 = d * lightDirection.Y;
+    //    result.M12 = a * lightDirection.Y;
+    //    result.M22 = b * lightDirection.Y + dot;
+    //    result.M32 = c * lightDirection.Y;
+    //    result.M42 = d * lightDirection.Y;
 
-        result.M13 = a * lightDirection.Z;
-        result.M23 = b * lightDirection.Z;
-        result.M33 = c * lightDirection.Z + dot;
-        result.M43 = d * lightDirection.Z;
+    //    result.M13 = a * lightDirection.Z;
+    //    result.M23 = b * lightDirection.Z;
+    //    result.M33 = c * lightDirection.Z + dot;
+    //    result.M43 = d * lightDirection.Z;
 
-        result.M14 = 0.0f;
-        result.M24 = 0.0f;
-        result.M34 = 0.0f;
-        result.M44 = dot;
+    //    result.M14 = 0.0f;
+    //    result.M24 = 0.0f;
+    //    result.M34 = 0.0f;
+    //    result.M44 = dot;
 
-        return result;
-    }
+    //    return result;
+    //}
 
-    public static KBMatrix4x4 CreateReflection(KBPlane value)
-    {
-        value = KBPlane.Normalize(value);
+    //public static KBMatrix4x4 CreateReflection(KBPlane value)
+    //{
+    //    value = KBPlane.Normalize(value);
 
-        float a = value.Normal.X;
-        float b = value.Normal.Y;
-        float c = value.Normal.Z;
+    //    float a = value.Normal.X;
+    //    float b = value.Normal.Y;
+    //    float c = value.Normal.Z;
 
-        float fa = -2.0f * a;
-        float fb = -2.0f * b;
-        float fc = -2.0f * c;
+    //    float fa = -2.0f * a;
+    //    float fb = -2.0f * b;
+    //    float fc = -2.0f * c;
 
-        KBMatrix4x4 result;
+    //    KBMatrix4x4 result;
 
-        result.M11 = fa * a + 1.0f;
-        result.M12 = fb * a;
-        result.M13 = fc * a;
-        result.M14 = 0.0f;
+    //    result.M11 = fa * a + 1.0f;
+    //    result.M12 = fb * a;
+    //    result.M13 = fc * a;
+    //    result.M14 = 0.0f;
 
-        result.M21 = fa * b;
-        result.M22 = fb * b + 1.0f;
-        result.M23 = fc * b;
-        result.M24 = 0.0f;
+    //    result.M21 = fa * b;
+    //    result.M22 = fb * b + 1.0f;
+    //    result.M23 = fc * b;
+    //    result.M24 = 0.0f;
 
-        result.M31 = fa * c;
-        result.M32 = fb * c;
-        result.M33 = fc * c + 1.0f;
-        result.M34 = 0.0f;
+    //    result.M31 = fa * c;
+    //    result.M32 = fb * c;
+    //    result.M33 = fc * c + 1.0f;
+    //    result.M34 = 0.0f;
 
-        result.M41 = fa * value.D;
-        result.M42 = fb * value.D;
-        result.M43 = fc * value.D;
-        result.M44 = 1.0f;
+    //    result.M41 = fa * value.D;
+    //    result.M42 = fb * value.D;
+    //    result.M43 = fc * value.D;
+    //    result.M44 = 1.0f;
 
-        return result;
-    }
+    //    return result;
+    //}
 
     public static KBMatrix4x4 CreateLookAt(KBVector3 cameraPosition, KBVector3 cameraTarget, KBVector3 cameraUpVector)
     {
