@@ -41,4 +41,9 @@ public struct KBColor
     {
         return new KBColor(a.R / d, a.G / d, a.B / d);
     }
+
+    public static KBColor operator *(KBColor a, float d)
+    {
+        return new KBColor(a.R * d, a.G * d, a.B * d);
+    }
 }
