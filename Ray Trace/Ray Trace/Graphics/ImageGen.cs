@@ -10,30 +10,27 @@ using System.Windows.Forms;
 
 public class ImageGen
 {
-    static KBVector3 _GetRandomDir_In_Unit_Sphere()
-    {
-        KBVector3 tagertVector;
-        do
-        {
-            KBVector3 randomPos = new KBVector3(_random.Next(0, 100) * 0.01f, _random.Next(0, 100)* 0.01f, _random.Next(0, 100) * 0.01f);
-            tagertVector = randomPos * 2.0f - KBVector3.ONE;
-        } while (KBVector3.Dot(tagertVector, tagertVector) >= 1.0f);
-        //
-        return tagertVector;
-    }
-
     static KBColor _GetColor(KBRay ray, Scene scene)
     {
         IntersectParams intersectParams = new IntersectParams();
         if (scene.IntersectObjects(ray, 0.0f, float.MaxValue, ref intersectParams))
         {
-            KBVector3 tagert = intersectParams.Point + intersectParams.Normal + _GetRandomDir_In_Unit_Sphere();
-            KBRay newRay = new KBRay(intersectParams.Point, (tagert - intersectParams.Point).Normalize());
-            return _GetColor(newRay, scene) * 0.5f;
+            KBColor attenuation = KBColor.Black;
+            KBRay newRay = null;
+            if (intersectParams.Material.Scatter(ray, intersectParams, ref attenuation, ref newRay))
+            {
+                return attenuation * _GetColor(newRay, scene);
+            }
+            else
+            {
+                return KBColor.Black;
+            }
         }
         else
         {
-            return new KBColor(1, 1, 1);
+            KBVector3 unit_direction = ray.Direction;
+            float t = 0.5f * (ray.Direction.Y + 1.0f);
+            return KBColor.White * (1.0f - t) + new KBColor(0.5f, 0.7f, 1.0f) * t;
         }
     }
 
@@ -41,10 +38,20 @@ public class ImageGen
     {
         PerspectiveCamera camera = new PerspectiveCamera();
         KBSphere sphere = new KBSphere(new KBVector3(0.0f, 0.0f, -1.0f), 0.5f);
+        sphere.Material = new LambertianMaterial(new KBColor(0.8f, 0.3f, 0.3f));
         KBSphere sphere1 = new KBSphere(new KBVector3(0.0f, 100.5f, -1.0f), 100.0f);
+        sphere1.Material = new LambertianMaterial(new KBColor(0.8f, 0.8f, 0.0f));
+        KBSphere sphere2 = new KBSphere(new KBVector3(1.0f, 0.0f, -1.0f), 0.5f);
+        sphere2.Material = new MetalMaterial(new KBColor(0.8f, 0.6f, 0.2f));
+        KBSphere sphere3 = new KBSphere(new KBVector3(-1.0f, 0.0f, -1.0f), 0.5f);
+        sphere3.Material = new MetalMaterial(new KBColor(0.8f, 0.8f, 0.8f));
+
         Scene scene = new Scene();
         scene.AddSpaceObjects(sphere);
         scene.AddSpaceObjects(sphere1);
+        scene.AddSpaceObjects(sphere2);
+        scene.AddSpaceObjects(sphere3);
+
         Bitmap image = new Bitmap(width, height, PixelFormat.Format32bppArgb);
         Int32 subPiexCount = 4;
         for (Int32 iterX = 0; iterX < image.Width; ++iterX)
@@ -54,8 +61,8 @@ public class ImageGen
                 KBColor color = KBColor.Black;
                 for (Int32 Sub = 0; Sub < subPiexCount; ++Sub)
                 {
-                    float u = (float)(iterX + _random.Next(0, 100) * 0.01f) / (float)image.Width;
-                    float v = (float)(iterY + _random.Next(0, 100) * 0.01f) / (float)image.Height;
+                    float u = (float)(iterX + KBRandom.Next(0.0f, 1.0f)) / (float)image.Width;
+                    float v = (float)(iterY + KBRandom.Next(0.0f, 1.0f)) / (float)image.Height;
                     KBRay ray = camera.RayCast(u, v);
                     color += _GetColor(ray, scene);
                 }

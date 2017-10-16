@@ -19,6 +19,7 @@ namespace Ray_Trace
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            KBRandom.Init();
             Display.Image = ImageGen.DrawToBitmap(Display.Width, Display.Height);
         }
 

@@ -40,4 +40,17 @@ public class KBMath3D
         //
         return true;
     }
+
+
+    public static KBVector3 RandomDir_In_Unit_Sphere()
+    {
+        KBVector3 tagertVector;
+        do
+        {
+            KBVector3 randomPos = new KBVector3(KBRandom.Next(0.0f, 1.0f), KBRandom.Next(0.0f, 1.0f), KBRandom.Next(0.0f, 1.0f));
+            tagertVector = randomPos * 2.0f - KBVector3.ONE;
+        } while (KBVector3.Dot(tagertVector, tagertVector) >= 1.0f);
+        //
+        return tagertVector;
+    }
 }

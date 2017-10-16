@@ -112,6 +112,11 @@ public struct KBVector3
         return pos.Magnitude();
     }
 
+    public static KBVector3 Reflect(KBVector3 v, KBVector3 n)
+    {
+        return v - 2 * KBVector3.Dot(v, n) * n;
+    }
+
     float _x;
     float _y;
     float _z;

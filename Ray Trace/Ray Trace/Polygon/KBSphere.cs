@@ -28,20 +28,22 @@ public class KBSphere : KBShape
         }
         //
         float t = (-b - KBMathDefine.Sqrt(discrminant)) / (2 * a);
-        intersectParams.T = t;
         if (t < maxDistance && t> minDistance)
         {
             intersectParams.Point = ray.Origin + t * ray.Direction;
             intersectParams.Normal = (intersectParams.Point - Center).Normalize();
+            intersectParams.Material = Material;
+            intersectParams.T = t;
             return true;
         }
         //
         t = (-b + KBMathDefine.Sqrt(discrminant)) / (2 * a);
-        intersectParams.T = t;
         if (t < maxDistance && t > minDistance)
         {
             intersectParams.Point = ray.Origin + t * ray.Direction;
             intersectParams.Normal = (intersectParams.Point - Center).Normalize(); ;
+            intersectParams.Material = Material;
+            intersectParams.T = t;
             return true;
         }
         //
