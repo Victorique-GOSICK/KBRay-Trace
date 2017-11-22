@@ -117,6 +117,21 @@ public struct KBVector3
         return v - 2 * KBVector3.Dot(v, n) * n;
     }
 
+    public static bool Refract(KBVector3 v, KBVector3 n, float novern, ref KBVector3 refracted)
+    {
+        float t = Dot(v, n);
+        float discriminant = 1.0f - novern * novern * (1.0f - t * t);
+        if(discriminant > 0.0f)
+        {
+            refracted = novern * (v - n * t) - n * KBMathDefine.Sqrt(discriminant);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     float _x;
     float _y;
     float _z;

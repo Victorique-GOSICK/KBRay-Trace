@@ -54,6 +54,7 @@
     <Compile Include="Film\Film.cs" />
     <Compile Include="Graphics\ImageGen.cs" />
     <Compile Include="IntersectParams.cs" />
+    <Compile Include="Material\Dielectric.cs" />
     <Compile Include="Material\LambertianMaterial.cs" />
     <Compile Include="Material\Material.cs" />
     <Compile Include="Material\MetalMaterial.cs" />

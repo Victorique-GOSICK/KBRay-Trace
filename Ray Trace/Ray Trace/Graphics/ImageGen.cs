@@ -53,7 +53,7 @@ public class ImageGen
         scene.AddSpaceObjects(sphere3);
 
         Bitmap image = new Bitmap(width, height, PixelFormat.Format32bppArgb);
-        Int32 subPiexCount = 4;
+        Int32 subPiexCount = 20;
         for (Int32 iterX = 0; iterX < image.Width; ++iterX)
         {
             for (Int32 iterY = 0; iterY < image.Height; ++iterY)
